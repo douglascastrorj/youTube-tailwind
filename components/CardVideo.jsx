@@ -8,7 +8,7 @@ const CardVideo = ({video}) => {
 
   const router = useRouter();
 
-  const onClickCard = (video) => { 
+  const onClickCard = () => { 
     router.push(`/videos/${video.id}`);
   }
 
