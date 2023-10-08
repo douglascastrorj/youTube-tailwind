@@ -3,37 +3,8 @@ import Image from "next/image"
 import { useState, useEffect } from 'react'
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 import { MdMenu, MdSearch, MdNotifications } from 'react-icons/md';
-import useEnter from "@/hooks/useEnter";
 import { useRouter } from "next/navigation";
-
-
-const SearchForm = ({
-    handleSubmit
-}) => {
-    const [search, setSearch] = useState('');
-
-    useEnter(() => {
-        handleSubmit(search);
-    });
-
-    const onSearchClick = (e) => { 
-        e.preventDefault();
-        handleSubmit(search);
-    }
-
-    const onSearchChange = (e) => {
-        setSearch(e.target.value);
-    }
-
-    return (
-        <form>
-            <label className="flex flex-row relative items-center">
-                <MdSearch onClick={onSearchClick} fontSize={24} className="text-gray-300 absolute left-3" />
-                <input onChange={onSearchChange} className="px-12 py-1 rounded-full bg-slate-950 text-gray-200 border-gray-300 border outline-none text-sm" type="text" placeholder="Pesquisar" />
-            </label>
-        </form>
-    )
-}
+import SearchForm from "./SearchForm";
 
 const Nav = ({handleMenuClick}) => {
 
